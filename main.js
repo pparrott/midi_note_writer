@@ -9,7 +9,7 @@ const rli = readline.createInterface({
 
 let midiWriteMode = false;
 let bindingTextContent = "";
-let controllerName
+let controllerName;
 
 // Initiate midi and readline requirements
 midi.init();
@@ -17,7 +17,7 @@ readline.emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
 
 // Timeout for 2 seconds to make sure the promise is fulfilled
-setTimeout(function() {
+setTimeout(function () {
     console.log("");
     // List current inputs and assign the text write function upon incoming notes
     midi.listInputsAndOutputs(midi.midiAccess);
@@ -27,7 +27,7 @@ setTimeout(function() {
     process.stdin.on("keypress", (key, data) => {
         // save file
         if (data.ctrl && data.name == 's') fileSave(bindingTextContent, controllerName);
-        
+
         // Move to next button 
         if (data.name == 'n') {
             if (midiWriteMode) {
@@ -72,8 +72,12 @@ function buttonWrite() {
 // Save the file
 function fileSave(textData, name) {
     fs.writeFile(`${name}_bindings.txt`, textData, (err) => {
-        if (err) console.log(err);
-        console.log("\nSuccessfully saved bindings");
+        if (err) {
+            console.log(err);
+            console.log(`Couldn't save file, try again.`);
+        } else {
+            console.log("\nSuccessfully saved bindings");
+        }
         process.exit();
     });
 }
