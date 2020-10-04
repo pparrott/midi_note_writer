@@ -1,0 +1,26 @@
+{
+  "name": "Midi note writer",
+  "version": "1.0.0",
+  "description": "Write midi notes from midi controllers",
+  "main": "main.js",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "keypress": "^0.2.1",
+    "jzz": "^1.0.9",
+    "prompt": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pparrott/midi_note_writer.git"
+  },
+  "author": "pparrott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pparrott/midi_note_writer/issues"
+  },
+  "homepage": "https://github.com/pparrott/midi_note_writer#readme"
+}
